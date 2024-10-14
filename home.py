@@ -21,12 +21,12 @@ import pandas as pd
 
 
 
-ICON_URL = "https://github.com/jeggino/giggigiss-gogle/blob/main/icons/bat_geen.png"
+ICON_URL = "https://static.vecteezy.com/system/resources/previews/014/488/954/original/location-pin-collection-red-pointer-icon-for-pin-on-the-map-to-show-the-location-png.png"
 
 icon_data = {
     "url": ICON_URL,
-    "width": 5000,
-    "height": 5000,
+    "width": 50,
+    "height": 50,
     "anchorY": 242,
 }
 
