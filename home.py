@@ -72,7 +72,6 @@ with tab2:
 
 #---NEW---
 import streamlit as st
-from streamlit_js_eval import streamlit_js_eval
 
 import folium
 from folium.plugins import Draw, Fullscreen, LocateControl, GroupedLayerControl
@@ -84,9 +83,7 @@ import datetime
 from datetime import datetime, timedelta, date
 import random
 
-from deta import Deta
-
-from credencials import *
+from https://github.com/jeggino/GiggiGIS/blob/main/credencials.py import *
 
 
 # # ---LAYOUT---
