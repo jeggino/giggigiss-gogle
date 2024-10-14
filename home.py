@@ -44,7 +44,7 @@ chart = pydeck.Deck(
 with tab2:
     col1, col2 = st.columns([4,1])
     with col1:
-        event = st.pydeck_chart(chart, on_select="rerun", selection_mode="singlev-object")
+        event = st.pydeck_chart(chart, on_select="rerun", selection_mode="single-object")
     
     with col2:
         st.write(event.selection)
