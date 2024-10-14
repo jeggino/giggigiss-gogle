@@ -32,7 +32,7 @@ icon_data = {
 }
 
 df_observations["icon_data"] = None
-for i in df_old.index:
+for i in df_observations.index:
     df_observations["icon_data"][i] = icon_data
 
 point_layer = pydeck.Layer(
