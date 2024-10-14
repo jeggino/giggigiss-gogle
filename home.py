@@ -6,18 +6,20 @@ from datetime import datetime as dt
 import random
 from dateutil import parser
 
+tab1, tab2 = st.tabs(["Dataframe", "Map"])
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 df_old = conn.read(ttl=0,worksheet="df_observations")
 
-df_old
+with tab1:
+    df_old
 
 
 import streamlit as st
 import pydeck
 import pandas as pd
 
-
+col1, col2 = st.columns([4,1])
 point_layer = pydeck.Layer(
     "ScreenGridLayer",
     data=df_old,
@@ -39,6 +41,9 @@ chart = pydeck.Deck(
     tooltip={"text": "{project}"},
 )
 
-event = st.pydeck_chart(chart, on_select="rerun", selection_mode="multi-object")
-
-event.selection
+with tab2:
+    woth col1:
+        event = st.pydeck_chart(chart, on_select="rerun", selection_mode="singlev-object")
+    
+    with col2:
+        event.selection
