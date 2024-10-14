@@ -47,9 +47,6 @@ df_point = df_observations
 df_references = df_references
 
 
-    
-)
-
 st.markdown(
     """
     <style>
