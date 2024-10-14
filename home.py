@@ -19,7 +19,7 @@ import streamlit as st
 import pydeck
 import pandas as pd
 
-col1, col2 = st.columns([4,1])
+
 point_layer = pydeck.Layer(
     "ScreenGridLayer",
     data=df_old,
@@ -41,9 +41,10 @@ chart = pydeck.Deck(
     tooltip={"text": "{project}"},
 )
 
-
+col1, col2 = st.columns([4,1])
 with col1:
     event = st.pydeck_chart(chart, on_select="rerun", selection_mode="singlev-object")
 
 with col2:
-    event.selection
+    st.write(event.selection)
+
