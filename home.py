@@ -46,7 +46,7 @@ point_layer = pydeck.Layer(
 )
 
 view_state = pydeck.ViewState(
-    latitude=df_old.lat.mean(), longitude=df_old.lng.mean(), controller=True, zoom=8, pitch=30
+    latitude=df_old.lat.mean(), longitude=df_old.lng.mean(), controller=True, zoom=8, pitch=30,map_style=pdk.map_styles.LIGHT,
 )
 
 chart = pydeck.Deck(
