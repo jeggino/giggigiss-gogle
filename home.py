@@ -44,7 +44,7 @@ point_layer = pydeck.Layer(
     get_icon="icon_data",
     pickable=True,
     size_scale=1,
-    get_size="aantal*10",
+    get_size="aantal",
 )
 
 view_state = pydeck.ViewState(
