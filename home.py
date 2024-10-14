@@ -37,7 +37,7 @@ for i in df_old.index:
     df_old["icon_data"][i] = icon_data
 
 point_layer = pydeck.Layer(
-    "ScatterplotLayer",
+    "IconLayer",
     data=df_old,
     id="id",
     get_position=["lng", "lat"],
