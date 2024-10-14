@@ -54,7 +54,7 @@ st.markdown(reduce_header_height_style, unsafe_allow_html=True)
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 df_observations = conn.read(ttl=0,worksheet="df_observations")
-df_users = conn.read(ttl=0,worksheet="df_users")
+df_references = conn.read(ttl=0,worksheet="df_users")
 
 OUTPUT_width = 1190
 OUTPUT_height = 450
