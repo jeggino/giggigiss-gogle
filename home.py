@@ -21,7 +21,7 @@ import pandas as pd
 
 
 point_layer = pydeck.Layer(
-    "ScreenGridLayer",
+    "ScatterplotLayer",
     data=df_old,
     id="id",
     get_position=["lng", "lat"],
@@ -47,6 +47,6 @@ with tab2:
         event = st.pydeck_chart(chart, on_select="rerun", selection_mode="single-object")
     
     with col2:
-        # st.markdown(event.selection)
-        st.dataframe(pd.DataFrame(event.selection['objects']['id']).T)
+        table = pd.DataFrame(event.selection['objects']['id']).T.rename(columns={0:"Entry"})
+        st.dataframe(table)
 
