@@ -21,7 +21,7 @@ import pandas as pd
 
 
 
-ICON_URL = "https://static.vecteezy.com/system/resources/previews/022/187/616/original/map-location-pin-icon-free-png.png"
+ICON_URL = "icons/bat_geen.png"
 
 icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
