@@ -28,7 +28,7 @@ point_layer = pydeck.Layer(
     get_color="[255, 75, 75]",
     pickable=True,
     auto_highlight=True,
-    get_radius="aantal*100",
+    get_radius="aantal*10",
 )
 
 view_state = pydeck.ViewState(
@@ -49,7 +49,7 @@ with tab2:
     with col2:
         try:
             table = pd.DataFrame(event.selection['objects']['id']).T.rename(columns={0:"Entry"})
-            st.dataframe(table)
+            st.dataframe(table, use_container_width=True)
 
         except:
             st.info("select a point")
