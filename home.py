@@ -20,15 +20,32 @@ import pydeck
 import pandas as pd
 
 
+
+ICON_URL = "icons/bat_geen.png"
+
+icon_data = {
+    # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
+    # Unported, 2.5 Generic, 2.0 Generic and 1.0 Generic licenses
+    "url": ICON_URL,
+    "width": 242,
+    "height": 242,
+    "anchorY": 242,
+}
+
+df_old["icon_data"] = None
+for i in df_old.index:
+    df_old["icon_data"][i] = icon_data
+
 point_layer = pydeck.Layer(
     "ScatterplotLayer",
     data=df_old,
     id="id",
     get_position=["lng", "lat"],
-    get_color="[255, 75, 75]",
+    get_icon="icon_data",
     pickable=True,
+    size_scale=15,
     auto_highlight=True,
-    get_radius="aantal*10",
+    get_size="aantal*10",
 )
 
 view_state = pydeck.ViewState(
