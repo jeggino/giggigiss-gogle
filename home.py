@@ -19,7 +19,7 @@ import pandas as pd
 
 
 point_layer = pydeck.Layer(
-    "ScatterplotLayer",
+    "ScreenGridLayer",
     data=df_old,
     id="id",
     get_position=["lng", "lat"],
