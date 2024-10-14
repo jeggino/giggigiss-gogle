@@ -43,7 +43,7 @@ point_layer = pydeck.Layer(
     get_position=["lng", "lat"],
     get_icon="icon_data",
     pickable=True,
-    size_scale=15,
+    size_scale=1,
     get_size="aantal*10",
 )
 
