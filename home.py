@@ -48,5 +48,5 @@ with tab2:
     
     with col2:
         # st.markdown(event.selection)
-        st.dataframe(pd.DataFrame(event.selection['objects']['id']))
+        st.dataframe(pd.DataFrame(event.selection['objects']['id']).T)
 
