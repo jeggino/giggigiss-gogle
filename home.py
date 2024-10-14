@@ -42,7 +42,7 @@ chart = pydeck.Deck(
 )
 
 with tab2:
-    woth col1:
+    with col1:
         event = st.pydeck_chart(chart, on_select="rerun", selection_mode="singlev-object")
     
     with col2:
