@@ -461,8 +461,6 @@ with st.sidebar:
 
 try:
 
-    db_content = load_dataset()
-    df_point = pd.DataFrame(db_content)
     
     if st.session_state.project['project_name'] != 'Admin':
         df_2 = df_point[df_point['project']==st.session_state.project['project_name']]
