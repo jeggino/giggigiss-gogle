@@ -414,7 +414,7 @@ def logIn():
 def project():
     st.subheader(f"Welkom {st.session_state.login['name'].split()[0]}!!",divider='grey')
     index_project = df_references[df_references['username']==st.session_state.login["name"]].index[0]
-    project_list = df_references.loc[index_project,"project"]
+    project_list = df_references.loc[index_project,"project"].split(',')
     project = st.selectbox("Aan welke project ga je werken?",project_list,label_visibility="visible")
     opdracht = st.selectbox("Aan welke opdracht ga je werken?",DICTIONARY_PROJECTS[project],label_visibility="visible")
     if st.button("begin"):
