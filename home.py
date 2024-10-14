@@ -44,12 +44,11 @@ point_layer = pydeck.Layer(
     get_icon="icon_data",
     pickable=True,
     size_scale=15,
-    auto_highlight=True,
     get_size="aantal*10",
 )
 
 view_state = pydeck.ViewState(
-    latitude=df_old.lat.mean(), longitude=df_old.lng.mean(), controller=True, zoom=2.4, pitch=30
+    latitude=df_old.lat.mean(), longitude=df_old.lng.mean(), controller=True, zoom=8, pitch=30
 )
 
 chart = pydeck.Deck(
