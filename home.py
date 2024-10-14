@@ -13,7 +13,7 @@ df_observations = conn.read(ttl=0,worksheet="df_observations")
 df_users = conn.read(ttl=0,worksheet="df_users")
 
 with tab1:
-    df_old
+    df_observations
 
 
 import streamlit as st
@@ -26,18 +26,18 @@ ICON_URL = "https://static.vecteezy.com/system/resources/previews/014/488/954/or
 
 icon_data = {
     "url": ICON_URL,
-    "width": 10,
-    "height": 10,
+    "width": 50,
+    "height": 50,
     "anchorY": 0,
 }
 
-df_old["icon_data"] = None
+df_observations["icon_data"] = None
 for i in df_old.index:
-    df_old["icon_data"][i] = icon_data
+    df_observations["icon_data"][i] = icon_data
 
 point_layer = pydeck.Layer(
     "IconLayer",
-    data=df_old,
+    data=df_observations,
     id="id",
     get_position=["lng", "lat"],
     get_icon="icon_data",
@@ -47,7 +47,7 @@ point_layer = pydeck.Layer(
 )
 
 view_state = pydeck.ViewState(
-    latitude=df_old.lat.mean(), longitude=df_old.lng.mean(), controller=True, zoom=8, pitch=30,map_style='road',
+    latitude=df_observations.lat.mean(), longitude=df_observations.lng.mean(), controller=True, zoom=8, pitch=30,map_style='road',
 )
 
 chart = pydeck.Deck(
