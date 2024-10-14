@@ -27,7 +27,7 @@ icon_data = {
     "url": ICON_URL,
     "width": 50,
     "height": 50,
-    "anchorY": 242,
+    "anchorY": 0,
 }
 
 df_old["icon_data"] = None
@@ -46,13 +46,13 @@ point_layer = pydeck.Layer(
 )
 
 view_state = pydeck.ViewState(
-    latitude=df_old.lat.mean(), longitude=df_old.lng.mean(), controller=True, zoom=8, pitch=30,map_style='light',
+    latitude=df_old.lat.mean(), longitude=df_old.lng.mean(), controller=True, zoom=8, pitch=30,map_style='road',
 )
 
 chart = pydeck.Deck(
     point_layer,
     initial_view_state=view_state,
-    tooltip={"text": "{project}"},
+    tooltip=None,
 )
 
 with tab2:
