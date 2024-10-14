@@ -24,11 +24,9 @@ import pandas as pd
 ICON_URL = "https://github.com/jeggino/giggigiss-gogle/blob/main/icons/bat_geen.png"
 
 icon_data = {
-    # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
-    # Unported, 2.5 Generic, 2.0 Generic and 1.0 Generic licenses
     "url": ICON_URL,
-    "width": 242,
-    "height": 242,
+    "width": 5000,
+    "height": 5000,
     "anchorY": 242,
 }
 
