@@ -25,9 +25,10 @@ ICON_URL = "https://static.vecteezy.com/system/resources/previews/014/488/954/or
 
 icon_data = {
     "url": ICON_URL,
-    "width": 50,
-    "height": 50,
+    "width": 10,
+    "height": 10,
     "anchorY": 0,
+    "anchorX": 0,
 }
 
 df_old["icon_data"] = None
