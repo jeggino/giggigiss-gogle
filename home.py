@@ -47,6 +47,10 @@ with tab2:
         event = st.pydeck_chart(chart, on_select="rerun", selection_mode="single-object")
     
     with col2:
-        table = pd.DataFrame(event.selection['objects']['id']).T.rename(columns={0:"Entry"})
-        st.dataframe(table)
+        try:
+            table = pd.DataFrame(event.selection['objects']['id']).T.rename(columns={0:"Entry"})
+            st.dataframe(table)
+
+        except:
+            st.info("select a point")
 
