@@ -26,7 +26,7 @@ point_layer = pydeck.Layer(
     get_color="[255, 75, 75]",
     pickable=True,
     auto_highlight=True,
-    get_radius="aantal",
+    get_radius="aantal*100",
 )
 
 view_state = pydeck.ViewState(
