@@ -1,84 +1,11 @@
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
-from streamlit_option_menu import option_menu  
-from datetime import datetime as dt
 import random
-from dateutil import parser
-
-tab1, tab2 = st.tabs(["Dataframe", "Map"])
-
-conn = st.connection("gsheets", type=GSheetsConnection)
-df_observations = conn.read(ttl=0,worksheet="df_observations")
-df_users = conn.read(ttl=0,worksheet="df_users")
-
-with tab1:
-    df_observations
-
-
-import streamlit as st
-import pydeck
-import pandas as pd
-
-
-
-ICON_URL = "https://static.vecteezy.com/system/resources/previews/014/488/954/original/location-pin-collection-red-pointer-icon-for-pin-on-the-map-to-show-the-location-png.png"
-
-icon_data = {
-    "url": ICON_URL,
-    "width": 50,
-    "height": 50,
-    "anchorY": 0,
-}
-
-df_observations["icon_data"] = None
-for i in df_observations.index:
-    df_observations["icon_data"][i] = icon_data
-
-point_layer = pydeck.Layer(
-    "IconLayer",
-    data=df_observations,
-    id="id",
-    get_position=["lng", "lat"],
-    get_icon="icon_data",
-    pickable=True,
-    size_scale=1,
-    get_size="aantal",
-)
-
-view_state = pydeck.ViewState(
-    latitude=df_observations.lat.mean(), longitude=df_observations.lng.mean(), controller=True, zoom=8, pitch=30,map_style='road',
-)
-
-chart = pydeck.Deck(
-    point_layer,
-    initial_view_state=view_state,
-    tooltip=None,
-)
-
-with tab2:
-    col1, col2 = st.columns([2,1])
-    with col1:
-        event = st.pydeck_chart(chart, on_select="rerun", selection_mode="single-object")
-    
-    with col2:
-        try:
-            table = pd.DataFrame(event.selection['objects']['id']).T.rename(columns={0:"Entry"})
-            st.dataframe(table, use_container_width=True)                
-
-        except:
-            st.info("select a point")
-
-
-#---NEW---
-import streamlit as st
 
 import folium
 from folium.plugins import Draw, Fullscreen, LocateControl, GroupedLayerControl
 from streamlit_folium import st_folium
-
-import pandas as pd
-
 import datetime
 from datetime import datetime, timedelta, date
 import random
@@ -86,14 +13,14 @@ import random
 from credential import *
 
 
-# # ---LAYOUT---
-# st.set_page_config(
-#     page_title="GiggiGIS Desktop",
-#     initial_sidebar_state="collapsed",
-#     page_icon="📝",
-#     layout="wide",
+# ---LAYOUT---
+st.set_page_config(
+    page_title="GiggiGIS Desktop",
+    initial_sidebar_state="collapsed",
+    page_icon="📝",
+    layout="wide",
     
-# )
+)
 
 st.markdown(
     """
@@ -125,14 +52,9 @@ reduce_header_height_style = """
 st.markdown(reduce_header_height_style, unsafe_allow_html=True)
 
 
-# deta = Deta(st.secrets["deta_key_other"])
-# db = deta.Base("df_observations")
-# drive = deta.Drive("df_pictures")
-
-
-# --- DIMENSIONS ---
-#innerWidth = streamlit_js_eval(js_expressions='screen.width',  want_output = True, key = 'width')
-#innerHeight = streamlit_js_eval(js_expressions='window.screen.height', want_output = True, key = 'height')
+conn = st.connection("gsheets", type=GSheetsConnection)
+df_observations = conn.read(ttl=0,worksheet="df_observations")
+df_users = conn.read(ttl=0,worksheet="df_users")
 
 OUTPUT_width = 1190
 OUTPUT_height = 450
@@ -144,12 +66,6 @@ ICON_SIZE_BAX_EXTRA = (60,28)
 
 
 # --- FUNCTIONS ---
-
-    
-def load_dataset():
-    return db.fetch().items
-
-
 def popup_polygons(row):
     
     i = row
@@ -285,16 +201,6 @@ def popup_html(row):
     """
     return html
 
-#______________NEW___________________
-# deta = Deta(st.secrets["deta_key_other"])
-# db = deta.Base("df_observations")
-# drive = deta.Drive("df_pictures")
-# db_content = db.fetch().items 
-df_point = df_observations
-
-# db_2 = deta.Base("df_authentication")
-# db_content_2 = db_2.fetch().items 
-df_references = df_users
 
 @st.dialog(" ")
 def update_item():
