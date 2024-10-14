@@ -83,7 +83,7 @@ import datetime
 from datetime import datetime, timedelta, date
 import random
 
-from https://github.com/jeggino/GiggiGIS/blob/main/credencials.py import *
+from credential import *
 
 
 # # ---LAYOUT---
