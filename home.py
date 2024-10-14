@@ -47,6 +47,6 @@ with tab2:
         event = st.pydeck_chart(chart, on_select="rerun", selection_mode="single-object")
     
     with col2:
-        st.markdown(event.selection)
-        pd.DataFrame(event.selection['objects']['id'])
+        # st.markdown(event.selection)
+        st.dataframe(pd.DataFrame(event.selection['objects']['id']))
 
