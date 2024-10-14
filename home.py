@@ -41,9 +41,9 @@ chart = pydeck.Deck(
     tooltip={"text": "{project}"},
 )
 
-with tab2:
-    with col1:
-        event = st.pydeck_chart(chart, on_select="rerun", selection_mode="singlev-object")
-    
-    with col2:
-        event.selection
+
+with col1:
+    event = st.pydeck_chart(chart, on_select="rerun", selection_mode="singlev-object")
+
+with col2:
+    event.selection
