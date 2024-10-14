@@ -12,6 +12,23 @@ import random
 
 from credential import *
 
+import streamlit as st
+from streamlit_js_eval import streamlit_js_eval
+
+import folium
+from folium.plugins import Draw, Fullscreen, LocateControl, GroupedLayerControl
+from streamlit_folium import st_folium
+
+import pandas as pd
+
+import datetime
+from datetime import datetime, timedelta, date
+import random
+
+from deta import Deta
+
+from credencials import *
+
 
 # ---LAYOUT---
 st.set_page_config(
@@ -19,6 +36,17 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
     page_icon="📝",
     layout="wide",
+    
+)
+
+conn = st.connection("gsheets", type=GSheetsConnection)
+df_observations = conn.read(ttl=0,worksheet="df_observations")
+df_references = conn.read(ttl=0,worksheet="df_users")
+
+df_point = df_observations
+df_references = df_references
+
+
     
 )
 
@@ -52,9 +80,10 @@ reduce_header_height_style = """
 st.markdown(reduce_header_height_style, unsafe_allow_html=True)
 
 
-conn = st.connection("gsheets", type=GSheetsConnection)
-df_observations = conn.read(ttl=0,worksheet="df_observations")
-df_references = conn.read(ttl=0,worksheet="df_users")
+
+# --- DIMENSIONS ---
+#innerWidth = streamlit_js_eval(js_expressions='screen.width',  want_output = True, key = 'width')
+#innerHeight = streamlit_js_eval(js_expressions='window.screen.height', want_output = True, key = 'height')
 
 OUTPUT_width = 1190
 OUTPUT_height = 450
@@ -201,7 +230,7 @@ def popup_html(row):
     """
     return html
 
-
+#______________NEW___________________
 @st.dialog(" ")
 def update_item():
 
@@ -366,7 +395,6 @@ with st.sidebar:
 # st.logo(IMAGE,  link=None, icon_image=IMAGE_2)
 
 try:
-
     
     if st.session_state.project['project_name'] != 'Admin':
         df_2 = df_point[df_point['project']==st.session_state.project['project_name']]
@@ -515,6 +543,5 @@ try:
         st.stop()
 
 except:
-    # st.image("https://media.istockphoto.com/photos/open-empty-cardboard-box-on-a-white-background-picture-id172167710?k=6&m=172167710&s=612x612&w=0&h=Z4fueCweh9q-X_VBRAPCYSalyaAnXG3ioErb8oJSVek=")
+    st.image("https://media.istockphoto.com/photos/open-empty-cardboard-box-on-a-white-background-picture-id172167710?k=6&m=172167710&s=612x612&w=0&h=Z4fueCweh9q-X_VBRAPCYSalyaAnXG3ioErb8oJSVek=")
     st.stop()
-
