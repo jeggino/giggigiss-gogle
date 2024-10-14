@@ -21,7 +21,7 @@ import pandas as pd
 
 
 
-ICON_URL = "https://upload.wikimedia.org/wikipedia/commons/c/c4/Projet_bi%C3%A8re_logo_v2.png"
+ICON_URL = "https://static.vecteezy.com/system/resources/previews/022/187/616/original/map-location-pin-icon-free-png.png"
 
 icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
