@@ -21,7 +21,7 @@ import pandas as pd
 
 
 
-ICON_URL = "icons/bat_geen.png"
+ICON_URL = "https://github.com/jeggino/giggigiss-gogle/blob/main/icons/bat_geen.png"
 
 icon_data = {
     # Icon from Wikimedia, used the Creative Commons Attribution-Share Alike 3.0
