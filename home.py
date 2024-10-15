@@ -26,11 +26,8 @@ st.set_page_config(
 #---DATASET---
 ttl = '60m'
 conn = st.connection("gsheets", type=GSheetsConnection)
-df_observations = conn.read(ttl=ttl,worksheet="df_observations")
+df_point = conn.read(ttl=ttl,worksheet="df_observations")
 df_references = conn.read(ttl=ttl,worksheet="df_users")
-
-df_point = df_observations
-df_references = df_references
 
 
 st.markdown(
@@ -65,9 +62,6 @@ st.markdown(reduce_header_height_style, unsafe_allow_html=True)
 
 
 # --- DIMENSIONS ---
-#innerWidth = streamlit_js_eval(js_expressions='screen.width',  want_output = True, key = 'width')
-#innerHeight = streamlit_js_eval(js_expressions='window.screen.height', want_output = True, key = 'height')
-
 OUTPUT_width = 1190
 OUTPUT_height = 450
 ICON_SIZE = (20,20)
@@ -213,7 +207,7 @@ def popup_html(row):
     """
     return html
 
-#______________NEW___________________
+
 @st.dialog(" ")
 def update_item():
 
@@ -351,6 +345,11 @@ def logOut_project():
         st.rerun()
         
 
+#---APP---
+# IMAGE = "image/logo.png"
+# IMAGE_2 ="image/menu.jpg"
+# st.logo(IMAGE,  link=None, icon_image=IMAGE_2)
+
 
 if "login" not in st.session_state:
     logIn()
@@ -361,7 +360,6 @@ if 'project' not in st.session_state:
     project()
     st.stop()
 
-#______________NEW___________________
 
 
 
@@ -369,13 +367,6 @@ with st.sidebar:
     logOut_project()
     logOut()
     st.divider()
-
-    
-    
-
-# IMAGE = "image/logo.png"
-# IMAGE_2 ="image/menu.jpg"
-# st.logo(IMAGE,  link=None, icon_image=IMAGE_2)
 
 try:
     
@@ -417,7 +408,7 @@ try:
     for feature_group in functie_dictionary.keys():
         map.add_child(functie_dictionary[feature_group])
 
-    folium.TileLayer('OpenStreetMap',overlay=False,show=True,name="Street").add_to(map)
+    folium.TileLayer('OpenStreetMap',overlay=False,show=True,name="Streets").add_to(map)
     folium.TileLayer(tiles="Cartodb Positron",overlay=False,show=False,name="Light").add_to(map)
     folium.TileLayer('Cartodb dark_matter',overlay=False,show=False,name="Dark").add_to(map)
     
@@ -452,9 +443,9 @@ try:
                          ).add_to(fouctie_loop)
                 
 
-        elif df_2.iloc[i]['geometry_type'] == "LineString":
-            # fouctie_loop = functie_dictionary[df_2.iloc[i]['functie']]
-            folium.PolyLine(df_2.iloc[i]['coordinates']).add_to(map)
+        # elif df_2.iloc[i]['geometry_type'] == "LineString":
+        #     # fouctie_loop = functie_dictionary[df_2.iloc[i]['functie']]
+        #     folium.PolyLine(df_2.iloc[i]['coordinates']).add_to(map)
 
         elif df_2.iloc[i]['geometry_type'] == "Polygon":
             html = popup_polygons(i)
@@ -476,7 +467,6 @@ try:
                          feature_group_to_add=list(functie_dictionary.values()))
         
     try:
-
         try:
             id = str(output_2["last_active_drawing"]['geometry']['coordinates'][0])+str(output_2["last_active_drawing"]['geometry']['coordinates'][1])
             name = f"{id}"
