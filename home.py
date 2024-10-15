@@ -369,7 +369,7 @@ with st.sidebar:
     st.divider()
 
 try:
-    
+    st.warning("Insert data!",icon="📌")
     if st.session_state.project['project_name'] != 'Admin':
         df_2 = df_point[df_point['project']==st.session_state.project['project_name']]
         df_2 = df_2[df_2['soortgroup']==st.session_state.project['opdracht']]
