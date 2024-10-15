@@ -113,4 +113,5 @@ DICTIONARY_USERS = {"Luigi": ["Niet gespecificeerd"],
 
 DICTIONARY_PROJECTS = {"Overig":["Vogels","Vleermuizen","Vleermuiskast"],
                       "Ratten Terschelling":["Camera","Rat val",'Vangkooi'],
-                      "Admin":["Vogels","Vleermuizen","Vleermuiskast","Camera","Rat val",'Vangkooi']}
+                      "Admin":["Vogels","Vleermuizen","Vleermuiskast","Camera","Rat val",'Vangkooi'],
+                       "Bats balkans":["Vleermuizen"]}
