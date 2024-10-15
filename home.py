@@ -369,24 +369,24 @@ with st.sidebar:
     st.divider()
 
 try:
-    st.warning("Insert data!",icon="📌")
-    if st.session_state.project['project_name'] != 'Admin':
-        df_2 = df_point[df_point['project']==st.session_state.project['project_name']]
-        df_2 = df_2[df_2['soortgroup']==st.session_state.project['opdracht']]
-
-    else:
-        df_2 = df_point[df_point['soortgroup']==st.session_state.project['opdracht']]
-
     try:
+        if st.session_state.project['project_name'] != 'Admin':
+            df_2 = df_point[df_point['project']==st.session_state.project['project_name']]
+            df_2 = df_2[df_2['soortgroup']==st.session_state.project['opdracht']]
+    
+        else:
+            df_2 = df_point[df_point['soortgroup']==st.session_state.project['opdracht']]
+    
+        
         df_2["datum"] = pd.to_datetime(df_2["datum"]).dt.date
-
-   
+    
+    
         st.sidebar.subheader("Filter op",divider=False)
         d = st.sidebar.slider("Datum", min_value=df_2.datum.min(),max_value=df_2.datum.max(),value=(df_2.datum.min(), df_2.datum.max()),format="DD-MM-YYYY")
         
         df_2 = df_2[(df_2['datum']>=d[0]) & (df_2['datum']<=d[1])]
     except:
-        st.warning("Insert data!",icon="📌")
+        st.sidebar.warning("Insert data!",icon="📌")
         
     if st.session_state.project['opdracht'] in ["Vleermuizen","Vogels"]:
         species_filter_option = df_2["sp"].unique()
