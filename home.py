@@ -385,8 +385,8 @@ try:
         d = st.sidebar.slider("Datum", min_value=df_2.datum.min(),max_value=df_2.datum.max(),value=(df_2.datum.min(), df_2.datum.max()),format="DD-MM-YYYY")
         
         df_2 = df_2[(df_2['datum']>=d[0]) & (df_2['datum']<=d[1])]
-    # except:
-    #     continue
+    finally:
+        st.write("ciao")
         
     if st.session_state.project['opdracht'] in ["Vleermuizen","Vogels"]:
         species_filter_option = df_2["sp"].unique()
