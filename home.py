@@ -385,7 +385,7 @@ try:
         d = st.sidebar.slider("Datum", min_value=df_2.datum.min(),max_value=df_2.datum.max(),value=(df_2.datum.min(), df_2.datum.max()),format="DD-MM-YYYY")
         
         df_2 = df_2[(df_2['datum']>=d[0]) & (df_2['datum']<=d[1])]
-    finally:
+    except:
         st.write("ciao")
         
     if st.session_state.project['opdracht'] in ["Vleermuizen","Vogels"]:
