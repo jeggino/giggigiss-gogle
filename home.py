@@ -404,7 +404,7 @@ try:
     st.dataframe(df_2.reset_index(drop=True))
     location = df_2.iloc[11]['coordinates'][0]
     location = [i[::-1] for i in location]
-    eval(location)
+    st.write(eval(location))
     
     #---
     
