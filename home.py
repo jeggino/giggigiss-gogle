@@ -511,7 +511,7 @@ try:
                             #     st.warning('Je kunt deze observatie niet uitwissen. Een andere gebruiker heeft het gemarkeerd.', icon="⚠️")
                             
             except:
-                st.info('Geen foto opgeslagen voor deze waarneming')
+                # st.info('Geen foto opgeslagen voor deze waarneming')
 
                 if st.button("Waarneming bijwerken",use_container_width=True):
                     update_item()
@@ -519,12 +519,12 @@ try:
                 with st.form("entry_form", clear_on_submit=True,border=False):
                     submitted = st.form_submit_button(":red[**Verwijder waarneming**]",use_container_width=True)
                     if submitted:
-                    # if waarnemer == df_point.set_index("key").loc[id,"waarnemer"]:
-                        db.delete(id)
-                        st.success('Waarneming verwijderd', icon="✅")     
-                        st.page_link("🗺️_Home.py", label="Vernieuwen", icon="🔄",use_container_width=True)
-                            # else:
-                            #     st.warning('Je kunt deze observatie niet uitwissen. Een andere gebruiker heeft het gemarkeerd.', icon="⚠️")
+                        df = conn.read(ttl=0,worksheet="df_observations")
+                        df_filter = df[df["key"]==id]
+                        df_drop = df[~df.apply(tuple, axis=1).isin(df_filter.apply(tuple, axis=1))]
+                        conn.update(worksheet='df_observations',data=df_drop)
+                        st.success('Waarneming verwijderd', icon="✅") 
+                        st.page_link("home.py", label="Vernieuwen", icon="🔄",use_container_width=True)
 
     except:
         st.stop()
