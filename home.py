@@ -404,8 +404,8 @@ try:
                                    axis=1)
     #---
     df_2
-    location = df_2.iloc[57]['coordinates'][0]
-    location = eval(location)
+    location = df_2.iloc[13]['coordinates'][0]
+    location = ast.literal_eval(location)
     location = [i[::-1] for i in location]
     location
     
