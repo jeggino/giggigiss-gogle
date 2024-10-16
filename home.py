@@ -69,6 +69,7 @@ ICON_SIZE = (20,20)
 ICON_SIZE_huismus = (28,28)
 ICON_SIZE_rat_maybe = (245,150)
 ICON_SIZE_BAX_EXTRA = (50,65)
+ICON_SIZE_ANDER = (28,18)
 
 
 # --- FUNCTIONS ---
@@ -433,6 +434,9 @@ try:
 
             elif (df_2.iloc[i]['sp'] in ['Ruige dwergvleermuis', 'Laatvlieger','Rosse vleermuis','Meervleermuis','Watervleermuis']):
                 ICON_SIZE_2 = ICON_SIZE_BAX_EXTRA
+
+            elif (df_2.iloc[i]['sp'] in ['...Andere(n)']):
+                ICON_SIZE_2 = ICON_SIZE_ANDER
 
             else:                
                 ICON_SIZE_2 = ICON_SIZE
