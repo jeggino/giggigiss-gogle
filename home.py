@@ -489,8 +489,8 @@ try:
         #     folium.PolyLine(df_2.iloc[i]['coordinates']).add_to(map)
 
         elif df_2.iloc[i]['geometry_type'] == "Polygon":
-            # html = popup_polygons(i)
-            # popup = folium.Popup(folium.Html(html, script=True), max_width=300)
+            html = popup_polygons(i)
+            popup = folium.Popup(folium.Html(html, script=True), max_width=300)
             fouctie_loop = functie_dictionary[df_2.iloc[i]['functie']]
             location = df_2.iloc[i]['coordinates']#[0]
             location = ast.literal_eval(location)
@@ -504,7 +504,7 @@ try:
                 fill_color="green"
                 
             folium.Polygon(location,fill_color=fill_color,weight=0,fill_opacity=0.5,
-                          # popup=popup
+                          popup=popup
                           ).add_to(fouctie_loop)
 
     
