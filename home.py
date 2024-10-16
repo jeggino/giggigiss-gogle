@@ -447,7 +447,12 @@ try:
 
     
 
-    folium.GeoJson('geometries/map (6).geojson').add_to(functie_dictionary["geometry"])
+    folium.GeoJson('geometries/map (6).geojson',
+                  tooltip=folium.features.GeoJsonTooltip(
+         fields=['name'],
+         labels=False,
+         style=("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;") 
+     )).add_to(functie_dictionary["geometry"])
 
     for i in range(len(df_2)):
 
