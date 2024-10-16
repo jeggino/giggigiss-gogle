@@ -402,14 +402,6 @@ try:
                                    else (icon_dictionary[x["soortgroup"]][x["sp"]][x["functie"]] if x["soortgroup"] in ['Vogels','Vleermuizen'] 
                                          else icon_dictionary[x["soortgroup"]][x["functie"]]), 
                                    axis=1)
-    #---
-    df_2
-    location = df_2.iloc[13]['coordinates'][0]
-    location = ast.literal_eval(location)
-    location = [i[::-1] for i in location]
-    location
-    
-    #---
     
     map = folium.Map(tiles=None)
     LocateControl(auto_start=False,position="topleft").add_to(map)
