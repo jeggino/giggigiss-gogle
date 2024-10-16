@@ -492,11 +492,9 @@ try:
             html = popup_polygons(i)
             popup = folium.Popup(folium.Html(html, script=True), max_width=300)
             fouctie_loop = functie_dictionary[df_2.iloc[i]['functie']]
-            location = df_2.iloc[i]['coordinates']#[0]
+            location = df_2.iloc[i]['coordinates']
             location = ast.literal_eval(location)
-            
-            location = [i[::-1] for i in location]
-            
+                        
             if df_2.iloc[i]['functie']=="Paringsgebied":
                 fill_color="red"
 
