@@ -11,7 +11,8 @@ import geopandas as gpd
 import datetime
 from datetime import datetime, timedelta, date
 
-from credencials import *
+from credentials import *
+
 
 
 # ---LAYOUT---
