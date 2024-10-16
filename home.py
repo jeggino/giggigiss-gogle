@@ -296,7 +296,7 @@ def update_item():
     df_filter = df[df["key"]==id].reset_index(drop=True)
       
     id_lat = df_filter['lat'][0]
-    id_lat = df_filter['lat'][0]
+    id_lng = df_filter['lng'][0]
     id_waarnemer = df_filter['waarnemer'][0]
     id_key = df_filter['key'][0]
     id_soortgroup = df_filter['soortgroup'][0]
@@ -310,7 +310,7 @@ def update_item():
       
     data = [{"key":id_key, "waarnemer":id_waarnemer,"datum":str(datum),"datum_2":str(datum_2),"time":time,"soortgroup":id_soortgroup, "aantal":aantal,
                    "sp":sp, "gedrag":gedrag, "functie":functie, "verblijf":verblijf,
-                   "geometry_type":id_geometry_type,"lat":id_lat,"lng":id_lat,"opmerking":opmerking,"coordinates":id_coordinates,"project":id_project}]
+                   "geometry_type":id_geometry_type,"lat":id_lat,"lng":id_lng,"opmerking":opmerking,"coordinates":id_coordinates,"project":id_project}]
       
     df_new = pd.DataFrame(data)
     df_updated = pd.concat([df,df_new],ignore_index=True)
@@ -506,6 +506,7 @@ try:
             name = f"{id}"
 
         with st.sidebar:
+            #---FOR THE PICTURE---
             try:
                 res = drive.get(name).read()                
                 with st.expander("Zie media"):
@@ -526,7 +527,7 @@ try:
                         st.page_link("🗺️_Home.py", label="vernieuwen", icon="🔄",use_container_width=True)
                             # else:
                             #     st.warning('Je kunt deze observatie niet uitwissen. Een andere gebruiker heeft het gemarkeerd.', icon="⚠️")
-                            
+             #---FOR THE PICTURE---               
             except:
                 # st.info('Geen foto opgeslagen voor deze waarneming')
 
