@@ -400,7 +400,7 @@ try:
                                    else (icon_dictionary[x["soortgroup"]][x["sp"]][x["functie"]] if x["soortgroup"] in ['Vogels','Vleermuizen'] 
                                          else icon_dictionary[x["soortgroup"]][x["functie"]]), 
                                    axis=1)
-
+    df_2
     map = folium.Map(tiles=None)
     LocateControl(auto_start=False,position="topleft").add_to(map)
     Fullscreen(position="topleft").add_to(map)
