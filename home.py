@@ -401,7 +401,7 @@ try:
                                          else icon_dictionary[x["soortgroup"]][x["functie"]]), 
                                    axis=1)
     #---
-    df_2.reset_index(drop=True)
+    st.dataframe(df_2.reset_index(drop=True))
     # location = df_2.iloc[i]['coordinates'][0]
     # location = [i[::-1] for i in location]
     #---
