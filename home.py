@@ -403,10 +403,11 @@ try:
                                          else icon_dictionary[x["soortgroup"]][x["functie"]]), 
                                    axis=1)
     #---
-    # df_2
-    # location = df_2.iloc[57]['coordinates'][0]
-    # location = [i[::-1] for i in location]
-    # st.write(eval(location))
+    df_2
+    location = df_2.iloc[57]['coordinates'][0]
+    location = eval(location)
+    location = [i[::-1] for i in location]
+    location
     
     #---
     
