@@ -48,10 +48,6 @@ OUTPUT_height = 450
 
     
 # --- FUNCTIONS ---
-
-def load_dataset():
-    return db.fetch().items
-
 def insert_json(key,waarnemer,datum,datum_2,time,soortgroup,aantal,sp,gedrag,functie,verblijf,geometry_type,lat,lng,opmerking,coordinates,project):
     
     data = [{"key":key, "waarnemer":waarnemer,"datum":datum,"datum_2":datum_2,"time":time,"soortgroup":soortgroup, "aantal":aantal,
