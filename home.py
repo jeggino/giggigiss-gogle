@@ -402,8 +402,9 @@ try:
                                    axis=1)
     #---
     st.dataframe(df_2.reset_index(drop=True))
-    # location = df_2.iloc[i]['coordinates'][0]
-    # location = [i[::-1] for i in location]
+    location = df_2.iloc[11]['coordinates'][0]
+    location = [i[::-1] for i in location]
+    location
     #---
     
     map = folium.Map(tiles=None)
