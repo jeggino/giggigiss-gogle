@@ -257,4 +257,4 @@ try:
         st.stop()
     
 except:
-    st.switch_page("🗺️_Home.py")
+    st.switch_page("Home.py")
