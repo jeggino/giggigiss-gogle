@@ -225,6 +225,8 @@ def update_item():
     gedrag = st.selectbox("Gedrag", BAT_BEHAVIOURS) 
     functie = st.selectbox("Functie", BAT_FUNCTIE) 
     if output_2["last_active_drawing"]["geometry"]["type"] == 'Polygon':
+        gedrag = None
+        functie = st.selectbox("Functie", ["Foerageergebied","Paringsgebied"])
         verblijf = None
     else:
         verblijf = st.selectbox("Verblijf", BAT_VERBLIJF) 
