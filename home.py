@@ -460,6 +460,7 @@ try:
             html = popup_polygons(i)
             popup = folium.Popup(folium.Html(html, script=True), max_width=300)
             fouctie_loop = functie_dictionary[df_2.iloc[i]['functie']]
+            st.write(location) 
             location = df_2.iloc[i]['coordinates'][0]
             location = [i[::-1] for i in location]
             
