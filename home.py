@@ -549,7 +549,7 @@ try:
                     update_item()
 
                 id
-                geometry_type = output["features"][0]["geometry"]["type"]
+                geometry_type = output_2["features"][0]["geometry"]["type"]
                 str(geometry_type)
                 with st.form("entry_form", clear_on_submit=True,border=False):
                     submitted = st.form_submit_button(":red[**Verwijder waarneming**]",use_container_width=True)
