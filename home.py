@@ -439,11 +439,11 @@ try:
     folium.TileLayer(tiles="Cartodb Positron",overlay=False,show=False,name="Light").add_to(map)
     folium.TileLayer('Cartodb dark_matter',overlay=False,show=False,name="Dark").add_to(map)
     
-
+    functie_dictionary["geometry"] = folium.FeatureGroup(name="geometry")
     
     folium.LayerControl().add_to(map)    
 
-    functie_dictionary["geometry"] = folium.FeatureGroup(name="geometry")
+    
 
     folium.GeoJson('geometries/area.geojson').add_to(functie_dictionary["geometry"])
 
