@@ -494,7 +494,7 @@ try:
             fouctie_loop = functie_dictionary[df_2.iloc[i]['functie']]
             location = df_2.iloc[i]['coordinates']
             location = ast.literal_eval(location)
-            location = [i[::-1] for i in location]
+            # location = [i[::-1] for i in location]
                         
             if df_2.iloc[i]['functie']=="Paringsgebied":
                 fill_color="red"
