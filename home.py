@@ -10,7 +10,7 @@ import datetime
 from datetime import datetime, timedelta, date
 import random
 
-from credential import *
+from credentials import *
 
 
 
