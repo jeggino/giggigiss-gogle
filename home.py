@@ -549,7 +549,7 @@ try:
                     update_item()
 
                 id
-                output_2["last_active_drawing"]#[0]["geometry"]["type"]
+                output_2["last_active_drawing"]["geometry"]["type"]
                 with st.form("entry_form", clear_on_submit=True,border=False):
                     submitted = st.form_submit_button(":red[**Verwijder waarneming**]",use_container_width=True)
                     if submitted:
