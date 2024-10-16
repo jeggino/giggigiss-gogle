@@ -298,7 +298,7 @@ def update_item():
     id_lat = df_filter['lat'][0]
     id_lat = df_filter['lat'][0]
     id_waarnemer = df_filter['waarnemer'][0]
-    id_key = id
+    id_key = df_filter['key'][0]
     id_soortgroup = df_filter['soortgroup'][0]
     id_geometry_type = df_filter['geometry_type'][0]
     id_coordinates = df_filter['coordinates'][0]
