@@ -10,6 +10,8 @@ import datetime
 from datetime import datetime, timedelta, date
 import random
 
+import ast
+
 from credentials import *
 
 
@@ -467,8 +469,8 @@ try:
             html = popup_polygons(i)
             popup = folium.Popup(folium.Html(html, script=True), max_width=300)
             fouctie_loop = functie_dictionary[df_2.iloc[i]['functie']]
-            st.write(location) 
             location = df_2.iloc[i]['coordinates'][0]
+            location = ast.literal_eval(location)
             location = [i[::-1] for i in location]
             
             if df_2.iloc[i]['functie']=="Paringsgebied":
@@ -477,7 +479,7 @@ try:
             else:
                 fill_color="green"
                 
-            folium.Polygon(eval(location),fill_color=fill_color,weight=0,fill_opacity=0.5,
+            folium.Polygon(location,fill_color=fill_color,weight=0,fill_opacity=0.5,
                           popup=popup).add_to(fouctie_loop)
 
     output_2 = st_folium(map,returned_objects=["last_active_drawing"],width=OUTPUT_width, height=OUTPUT_height,
