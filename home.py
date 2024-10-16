@@ -288,17 +288,31 @@ def update_item():
     verblijf = None
     aantal = st.number_input("Aantal", min_value=1)
 
-
-  
   opmerking = st.text_input("", placeholder="Vul hier een opmerking in ...")
 
+  if st.button("**Update**",use_container_width=True):
+    df = conn.read(ttl=0,worksheet="df_observations")
+    df_filter = df[df["key"]==id]
+      
+    id_lat = df_filter['lat'][0]
+    id_lat = df_filter['lat'][0]
+    id_waarnemer = df_filter['waarnemer'][0]
+    id_key = df_filter['key'][0]
+    id_soortgroup = df_filter['soortgroup'][0]
+    id_geometry_type = df_filter['geometry_type'][0]
+    id_coordinates = df_filter['coordinates'][0]
+    id_project = df_filter['project'][0]
+      
+    df_drop = df[~df.apply(tuple, axis=1).isin(df_filter.apply(tuple, axis=1))]
+    conn.update(worksheet='df_observations',data=df_drop)
+      
+    data = [{"key":id_key, "waarnemer":id_waarnemer,"datum":str(datum),"datum_2":str(datum_2),"time":time,"soortgroup":id_soortgroup, "aantal":aantal,
+                   "sp":sp, "gedrag":gedrag, "functie":functie, "verblijf":verblijf,
+                   "geometry_type":id_geometry_type,"lat":id_lat,"lng":id_lat,"opmerking":opmerking,"coordinates":id_coordinates,"project":id_project}]
+      
+    df_new = pd.DataFrame(data)
+    df_updated = pd.concat([df_old,df_new],ignore_index=True)
 
-  update = {"datum":str(datum),"datum_2":str(datum_2),"time":str(time),"sp":sp,
-            "aantal":aantal, "gedrag":gedrag, "functie":functie, 
-            "verblijf":verblijf,"opmerking":opmerking}
-    
-  if st.button("**Update**",use_container_width=True): 
-    db.update(update,id)
     st.rerun()
 
 
