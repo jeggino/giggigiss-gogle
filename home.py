@@ -494,8 +494,7 @@ try:
             folium.Polygon(location,fill_color=fill_color,weight=0,fill_opacity=0.5,
                           popup=popup).add_to(fouctie_loop)
 
-    folium.Polygon('geometries/area.geojson',fill_color="red",weight=0.6,fill_opacity=0.5,
-                  popup="area 2").add_to(map)    
+    folium.GeoJson('geometries/area.geojson').add_to(map)
 
     output_2 = st_folium(map,returned_objects=["last_active_drawing"],width=OUTPUT_width, height=OUTPUT_height,
                          feature_group_to_add=list(functie_dictionary.values()))
