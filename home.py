@@ -494,19 +494,18 @@ try:
             fouctie_loop = functie_dictionary[df_2.iloc[i]['functie']]
             location = df_2.iloc[i]['coordinates']#[0]
             location = ast.literal_eval(location)
-            location
-            # location = ast.literal_eval(location)
-            # location = [i[::-1] for i in location]
             
-            # if df_2.iloc[i]['functie']=="Paringsgebied":
-            #     fill_color="red"
+            location = [i[::-1] for i in location]
+            
+            if df_2.iloc[i]['functie']=="Paringsgebied":
+                fill_color="red"
 
-            # else:
-            #     fill_color="green"
+            else:
+                fill_color="green"
                 
-            # folium.Polygon(location,fill_color=fill_color,weight=0,fill_opacity=0.5,
-            #               # popup=popup
-            #               ).add_to(fouctie_loop)
+            folium.Polygon(location,fill_color=fill_color,weight=0,fill_opacity=0.5,
+                          # popup=popup
+                          ).add_to(fouctie_loop)
 
     
 
