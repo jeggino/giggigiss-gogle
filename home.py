@@ -443,7 +443,9 @@ try:
     
     folium.LayerControl().add_to(map)    
 
-    folium.GeoJson('geometries/area.geojson').add_to(map)
+    functie_dictionary["geometry"] = folium.FeatureGroup(name="geometry")
+
+    folium.GeoJson('geometries/area.geojson').add_to(functie_dictionary["geometry"])
 
     for i in range(len(df_2)):
 
