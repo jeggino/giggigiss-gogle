@@ -33,7 +33,7 @@ BAT_FUNCTIE = ['geen / onbekend','zomerverblijfplaats','kraamverblijfplaats','pa
 BAT_VERBLIJF = ['geen / onbekend', 'dakgoot', 'spouwmuur', 'daklijst',
        'kantpan', 'regenpijp', 'holte', 'raamkozijn', 'luik', 'scheur',
        'schoorsteen', 'gevelbetimmering', 'nokpan', 'dakpan',
-       'vleermuiskast', 'openingen in dak', 'dakkapel', 'schors']
+       'vleermuiskast', 'openingen in dak', 'dakkapel', 'schors','..ander']
 
 BIRD_NAMES = ['Gierzwaluw','Huismus']
 
