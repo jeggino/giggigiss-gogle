@@ -443,6 +443,8 @@ try:
     
     folium.LayerControl().add_to(map)    
 
+    folium.GeoJson('geometries/area.geojson').add_to(map)
+
     for i in range(len(df_2)):
 
         if df_2.iloc[i]['geometry_type'] == "Point":
@@ -494,7 +496,7 @@ try:
             folium.Polygon(location,fill_color=fill_color,weight=0,fill_opacity=0.5,
                           popup=popup).add_to(fouctie_loop)
 
-    folium.GeoJson('geometries/area.geojson').add_to(map)
+    
 
     output_2 = st_folium(map,returned_objects=["last_active_drawing"],width=OUTPUT_width, height=OUTPUT_height,
                          feature_group_to_add=list(functie_dictionary.values()))
