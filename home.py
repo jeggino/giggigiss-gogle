@@ -26,10 +26,11 @@ st.set_page_config(
 )
 
 #---DATASET---
-ttl = '1m'
+ttl = 0
+ttl_references = '10m'
 conn = st.connection("gsheets", type=GSheetsConnection)
 df_point = conn.read(ttl=ttl,worksheet="df_observations")
-df_references = conn.read(ttl=ttl,worksheet="df_users")
+df_references = conn.read(ttl=ttl_references,worksheet="df_users")
 
 
 st.markdown(
@@ -531,7 +532,7 @@ try:
 
                 if st.button("Waarneming bijwerken",use_container_width=True):
                     update_item()
-                
+                id
                 with st.form("entry_form", clear_on_submit=True,border=False):
                     submitted = st.form_submit_button(":red[**Verwijder waarneming**]",use_container_width=True)
                     if submitted:
