@@ -224,7 +224,10 @@ def update_item():
     sp = st.selectbox("Soort", BAT_NAMES)
     gedrag = st.selectbox("Gedrag", BAT_BEHAVIOURS) 
     functie = st.selectbox("Functie", BAT_FUNCTIE) 
-    verblijf = st.selectbox("Verblijf", BAT_VERBLIJF) 
+    if output_2["last_active_drawing"]["geometry"]["type"] == 'Polygon':
+        verblijf = None
+    else:
+        verblijf = st.selectbox("Verblijf", BAT_VERBLIJF) 
     aantal = st.number_input("Aantal", min_value=1)
     datum_2 = None
 
@@ -548,8 +551,7 @@ try:
                 if st.button("Waarneming bijwerken",use_container_width=True):
                     update_item()
 
-                id
-                output_2["last_active_drawing"]["geometry"]["type"]
+                
                 with st.form("entry_form", clear_on_submit=True,border=False):
                     submitted = st.form_submit_button(":red[**Verwijder waarneming**]",use_container_width=True)
                     if submitted:
