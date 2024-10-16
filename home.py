@@ -305,13 +305,15 @@ def update_item():
       
     df_drop = df[~df.apply(tuple, axis=1).isin(df_filter.apply(tuple, axis=1))]
     conn.update(worksheet='df_observations',data=df_drop)
+    df = conn.read(ttl=0,worksheet="df_observations")
       
     data = [{"key":id_key, "waarnemer":id_waarnemer,"datum":str(datum),"datum_2":str(datum_2),"time":time,"soortgroup":id_soortgroup, "aantal":aantal,
                    "sp":sp, "gedrag":gedrag, "functie":functie, "verblijf":verblijf,
                    "geometry_type":id_geometry_type,"lat":id_lat,"lng":id_lat,"opmerking":opmerking,"coordinates":id_coordinates,"project":id_project}]
       
     df_new = pd.DataFrame(data)
-    df_updated = pd.concat([df_old,df_new],ignore_index=True)
+    df_updated = pd.concat([df,df_new],ignore_index=True)
+    conn.update(worksheet='df_observations',data=df_updated)
 
     st.rerun()
 
