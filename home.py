@@ -292,8 +292,7 @@ def update_item():
 
   if st.button("**Update**",use_container_width=True):
     df = conn.read(ttl=0,worksheet="df_observations")
-    df_filter = df[df["key"]==id]
-    df_filter
+    df_filter = df[df["key"]==id].reset_index(drop=True)
       
     id_lat = df_filter['lat'][0]
     id_lat = df_filter['lat'][0]
