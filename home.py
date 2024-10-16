@@ -430,7 +430,9 @@ try:
     functie_len = df_2['functie'].unique()
     
     for functie in functie_len:
-        functie_dictionary[functie] = folium.FeatureGroup(name=functie)     
+        functie_dictionary[functie] = folium.FeatureGroup(name=functie)    
+
+    functie_dictionary["geometry"] = folium.FeatureGroup(name="geometry")
     
     for feature_group in functie_dictionary.keys():
         map.add_child(functie_dictionary[feature_group])
@@ -439,7 +441,7 @@ try:
     folium.TileLayer(tiles="Cartodb Positron",overlay=False,show=False,name="Light").add_to(map)
     folium.TileLayer('Cartodb dark_matter',overlay=False,show=False,name="Dark").add_to(map)
     
-    functie_dictionary["geometry"] = folium.FeatureGroup(name="geometry")
+    
     
     folium.LayerControl().add_to(map)    
 
