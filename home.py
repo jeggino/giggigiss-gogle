@@ -88,6 +88,14 @@ with st.sidebar:
     logOut()
     st.divider()
 
+#---DATASET---
+ttl = '10m'
+ttl_references = '10m'
+conn = st.connection("gsheets", type=GSheetsConnection)
+df_point = conn.read(ttl=ttl,worksheet="df_observations")
+df_references = conn.read(ttl=ttl_references,worksheet="df_users")
+
+#--- APP ---
 create_page = st.Page("home.py", title="Home", icon=":material/add_circle:")
 delete_page = st.Page("pages/✍️_Voeg_een_waarneming_in.py", title="Entry", icon=":material/delete:")
 
