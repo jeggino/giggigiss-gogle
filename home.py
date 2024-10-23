@@ -77,4 +77,8 @@ if 'project' not in st.session_state:
 
 df_references
 index_project = df_references[df_references['username']==st.session_state.login["name"]]['allow'].values
-st.sidebar.page_link("http://www.google.com", label="Page 2", icon="2️⃣", disabled=False)
+if index_project == "No":
+    disable = True
+else:
+    disable = False
+st.sidebar.page_link("http://www.google.com", label="Page 2", icon="2️⃣", disabled=disable)
