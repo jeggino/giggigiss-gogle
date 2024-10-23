@@ -53,13 +53,13 @@ def project():
          st.rerun()
         
 def logOut():
-    if st.button("logOut",use_container_width=True):
+    if st.button("logOut",use_container_width=True,key="logOut"):
         del st.session_state.login
         del st.session_state.project     
         st.rerun()
 
 def logOut_project():
-    if st.button("Opdracht wijzigen",use_container_width=True):
+    if st.button("Opdracht wijzigen",use_container_width=True,key="Opdracht wijzigen"):
         del st.session_state.project
         st.rerun()
         
