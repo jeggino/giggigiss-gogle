@@ -55,7 +55,7 @@ def project():
         
 #---DATASET---
 ttl = '10m'
-ttl_references = '10m'
+ttl_references = 0
 conn = st.connection("gsheets", type=GSheetsConnection)
 df_point = conn.read(ttl=ttl,worksheet="df_observations")
 df_references = conn.read(ttl=ttl_references,worksheet="df_users")
