@@ -17,13 +17,7 @@ from credentials import *
 
 
 # ---LAYOUT---
-st.set_page_config(
-    page_title="GiggiGIS Desktop",
-    initial_sidebar_state="collapsed",
-    page_icon="📝",
-    layout="wide",
-    
-)
+
 
 
 def logIn():
@@ -102,7 +96,13 @@ create_page = st.Page("home.py", title="Home", icon=":material/add_circle:")
 delete_page = st.Page("pages/✍️_Voeg_een_waarneming_in.py", title="Entry", icon=":material/delete:")
 
 pg = st.navigation([create_page, delete_page])
-# st.set_page_config(page_title="Data manager", page_icon=":material/edit:")
+st.set_page_config(
+    page_title="GiggiGIS Desktop",
+    initial_sidebar_state="collapsed",
+    page_icon="📝",
+    layout="wide",
+    
+)
 pg.run()
 
 # try:
