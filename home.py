@@ -77,6 +77,7 @@ if 'project' not in st.session_state:
 
 df_references
 index_project = df_references[df_references['username']==st.session_state.login["name"]]['allow'].values
+index_project 
 if index_project == "No":
     disable = True
 else:
