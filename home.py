@@ -395,7 +395,7 @@ with st.sidebar:
     st.divider()
 
 create_page = st.Page("home.py", title="Home", icon=":material/add_circle:")
-delete_page = st.Page("pages/✍️_Voeg_een_waarneming_in.py", title="Entry", icon=":material/delete:",disabled=True)
+delete_page = st.Page("pages/✍️_Voeg_een_waarneming_in.py", title="Entry", icon=":material/delete:")
 
 # pg = st.navigation([create_page, delete_page])
 # st.set_page_config(page_title="Data manager", page_icon=":material/edit:")
