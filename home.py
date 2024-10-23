@@ -82,4 +82,6 @@ if index_project == "No":
     disable = True
 else:
     disable = False
-st.sidebar.page_link("http://www.google.com", label="Page 2", icon="2️⃣", disabled=disable)
+
+st.sidebar.page_link("pages/Home.py", label="Home", icon="🗺️", disabled=False)   
+st.sidebar.page_link("pages/✍️_Voeg_een_waarneming_in.py", label="Voeg een waarneming in", icon="✍️", disabled=disable)
