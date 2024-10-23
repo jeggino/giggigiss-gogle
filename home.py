@@ -52,16 +52,6 @@ def project():
          st.session_state.project = {"project_name": project,"opdracht": opdracht}
          st.rerun()
         
-def logOut():
-    if st.button("logOut",use_container_width=True,key="logOut"):
-        del st.session_state.login
-        del st.session_state.project     
-        st.rerun()
-
-def logOut_project():
-    if st.button("Opdracht wijzigen",use_container_width=True,key="Opdracht wijzigen"):
-        del st.session_state.project
-        st.rerun()
         
 #---DATASET---
 ttl = '10m'
@@ -83,11 +73,6 @@ if 'project' not in st.session_state:
 
 
 
-
-with st.sidebar:
-    logOut_project()
-    logOut()
-    st.divider()
 
 
 
