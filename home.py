@@ -75,4 +75,5 @@ if 'project' not in st.session_state:
 
 
 index_project = df_references[df_references['username']==st.session_state.login["name"]]['allow'].values
-st.page_link("ages/✍️_Voeg_een_waarneming_in.py", label="Page 2", icon="2️⃣", disabled=index_project)
+sw.write(index_project)
+st.page_link("pages/✍️_Voeg_een_waarneming_in.py", label="Page 2", icon="2️⃣", disabled=index_project)
