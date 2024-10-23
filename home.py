@@ -83,5 +83,5 @@ if index_project == "No":
 else:
     disable = False
 
-st.sidebar.page_link("pages/home.py", label="Home", icon="🗺️", disabled=False)   
+st.sidebar.page_link("home.py", label="Home", icon="🗺️", disabled=False)   
 st.sidebar.page_link("pages/✍️_Voeg_een_waarneming_in.py", label="Voeg een waarneming in", icon="✍️", disabled=disable)
